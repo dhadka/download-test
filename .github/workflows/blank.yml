@@ -15,7 +15,7 @@ jobs:
       run: |
         $start_time = Get-Date
         $wc = New-Object System.Net.WebClient
-        $wc.DownloadFile("https://testcacheeastus.blob.core.windows.net/test/large.txt", "large.txt")
+        $wc.DownloadFile("${{ secrets.URL }}", "large.txt")
         $elapsed_time = (Get-Date).Subtract($start_time).TotalMilliseconds
         Write-Output "$elapsed_time"
   
